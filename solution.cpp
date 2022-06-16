@@ -17,17 +17,17 @@ using namespace std;
 
 bool Solution::canJump(vector<int> &nums)
 {
-  auto jump = nums[0];
+  auto canReach = nums[0];
 
   for (auto i = 1; i < nums.size(); i++)
   {
     /* can't reach i from any previous
        locations
     */
-    if (i > jump)
+    if (i > canReach)
       return false;
     /* see if we can reach further */
-    jump = max(jump, i + nums[i]);
+    canReach = max(canReach, i + nums[i]);
   }
 
   return true;
